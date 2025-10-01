@@ -24,3 +24,5 @@ isso ira executar seu backend
 ```
 python.exe app.py
 ```
+
+claro, você precisará ter coisa como pymongo,axios,flask_cors instalado em sua maquina tambêm.
