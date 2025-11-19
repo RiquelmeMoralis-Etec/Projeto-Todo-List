@@ -13,7 +13,11 @@ export default {
     },
     type: {
       type: String,
+<<<<<<< HEAD
       default: 'success'
+=======
+      default: 'success' // ou 'error'
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
     }
   },
   data() {
@@ -22,6 +26,10 @@ export default {
     }
   },
   mounted() {
+<<<<<<< HEAD
+=======
+    // Esconde a notificação após 3 segundos
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
     setTimeout(() => {
       this.visible = false
     }, 3000)

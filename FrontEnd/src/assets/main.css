@@ -93,10 +93,20 @@ li {
 }
 
 .task-title {
+<<<<<<< HEAD
   display: block;
   max-width: 40ch; /* ≈ 40 caracteres */
   white-space: normal;
   word-break: break-word;
+=======
+  flex: 1 1 auto;
+  margin-left: 10px;
+  white-space: normal;   /* permite quebra de linha */
+  overflow: visible;     /* não corta o texto */
+  text-overflow: unset;  /* remove as reticências */
+  word-break: break-word; /* quebra palavras muito grandes */
+  display: block;
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
 }
 
 .task-title.done {

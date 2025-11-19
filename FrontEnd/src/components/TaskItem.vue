@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <li class="task-item">
     <input 
       type="checkbox" 
@@ -12,21 +13,46 @@
       :class="{ done: task.done }"
       :title="task.title"
     >
+=======
+  <li>
+    <input type="checkbox" :checked="task.done" @change="toggleDone" />
+
+    <span class="task-title"
+        :class="{ done: task.done }"
+        :title="task.title">
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
       {{ task.title }}
     </span>
 
     <div class="actions">
       <button @click="$emit('edit-task', task)">✏️</button>
+<<<<<<< HEAD
       <button @click="deleteTask">🗑️</button>
+=======
+      <button @click="deleteTask">🗑</button>
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
     </div>
   </li>
 </template>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
 <script>
 import api from '../services/api'
 
 export default {
   props: ['task'],
+<<<<<<< HEAD
+=======
+  data() {
+    return {
+      editing: false,
+      editedTitle: this.task.title
+    }
+  },
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
   methods: {
     async toggleDone() {
       await api.put(`/tasks/${this.task._id}`, { done: !this.task.done })
@@ -40,6 +66,7 @@ export default {
       } catch (error) {
         this.$emit('notify', 'Erro ao deletar tarefa', 'error')
       }
+<<<<<<< HEAD
     }
   }
 }
@@ -102,3 +129,19 @@ button:hover {
   background: #285e61;
 }
 </style>
+=======
+    },
+    startEdit() {
+      this.editing = true
+      this.editedTitle = this.task.title
+    },
+    async saveEdit() {
+      if (!this.editedTitle.trim()) return
+      await api.put(`/tasks/${this.task._id}`, { title: this.editedTitle })
+      this.editing = false
+      this.$emit('task-updated')
+    }
+  }
+}
+</script>
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873

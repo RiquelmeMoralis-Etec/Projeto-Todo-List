@@ -19,7 +19,11 @@ import api from '../services/api'
 
 export default {
   props: {
+<<<<<<< HEAD
     editTask: {
+=======
+    editTask: { // recebe a tarefa a ser editada (ou null)
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
       type: Object,
       default: null
     }
@@ -46,6 +50,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
+<<<<<<< HEAD
       const userId = localStorage.getItem("user_id");
 
       if (this.isEditing) {
@@ -60,6 +65,19 @@ export default {
 
       this.taskTitle = "";
       this.isEditing = false;
+=======
+      if (this.isEditing) {
+        await api.put(`/tasks/${this.editTask._id}`, { title: this.taskTitle })
+        this.$emit('task-updated')
+        this.$emit('notify', 'Tarefa atualizada com sucesso', 'success')
+      } else {
+        await api.post('/tasks', { title: this.taskTitle })
+        this.$emit('task-added')
+        this.$emit('notify', 'Tarefa adicionada com sucesso', 'success')
+      }
+      this.taskTitle = ''
+      this.isEditing = false
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
     },
     cancelEdit() {
       this.$emit('cancel-edit')

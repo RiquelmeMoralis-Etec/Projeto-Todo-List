@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson import ObjectId
@@ -41,3 +42,16 @@ def update_task(task_id, updates, user_id):
 
 def delete_task(task_id, user_id):
     tasks_collection.delete_one({"_id": ObjectId(task_id), "user_id": user_id})
+=======
+# database.py
+from pymongo import MongoClient
+
+# conexão com MongoDB local (Compass)
+client = MongoClient("mongodb://localhost:27017/")
+
+# banco de dados "todo_db"
+db = client["todo_db"]
+
+# coleção "tasks"
+tasks_collection = db["tasks"]
+>>>>>>> a1e7d05fc1e7bfbae028df6bdd30b747269d8873
