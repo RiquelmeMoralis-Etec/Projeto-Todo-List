@@ -36,3 +36,5 @@ Após esses comandos execute o comando a seguir (este comando irá executar o ba
 ```
 python.exe app.py
 ```
+
+Detalhe, este projeto utiliza mongoDB como banco de dados.
