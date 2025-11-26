@@ -13,10 +13,23 @@ Após isso execute o seguinte comando estando na pasta \FrontEnd (este comando e
 ```
 npm run dev
 ```
+Ágora iremos instalar a máquina virtual venv, para isto estejá dentro da pasta \BackEnd
+```
+python -m venv venv
+```
 
-Para executar o backend esteja na pasta \BackEnd (isso executará um ambiente virtual caso sejá necessário em sua máquina)
+Para executar o backend esteja na pasta \BackEnd e entre na máquina virtual(o comando executará um ambiente virtual caso sejá necessário em sua máquina)
 ```
 .venv\Scripts\activate
+```
+
+Após entrar na máquina virtual instale as dependências a seguir.
+```
+pip install flask_cors
+
+pip install flask_session
+
+pip install pymongo
 ```
 
 Após esses comandos execute o comando a seguir (este comando irá executar o backend do projeto)
@@ -24,5 +37,3 @@ Após esses comandos execute o comando a seguir (este comando irá executar o ba
 ```
 python.exe app.py
 ```
-
-claro, você precisará ter depenências como pymongo,axios,flask_cors instalados em sua maquina tambêm.(caso não tenha)
