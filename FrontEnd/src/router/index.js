@@ -17,17 +17,20 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  if (!to.meta.requiresAuth) return next();
-
+  let logged = false;
   try {
-    const response = await api.get("/session", { withCredentials: true });
-
-    // deve tratar a resposta com o código HTTP correspondente, e não utilizando o campo 'data'.
-    if (response.data.logged_in) next();
-    else next("/login");
-  } catch (err) {
-    next("/login");
+    const r = await api.get("/session", { withCredentials: true });
+    if (r.status === 200) logged = true;
+  } catch (e) {
+    logged = false;
   }
+  if ((to.path === "/login" || to.path === "/register") && logged) {
+    return next("/dashboard");
+  }
+  if (to.meta.requiresAuth && !logged) {
+    return next("/login");
+  }
+  next();
 });
 
 export default router;
